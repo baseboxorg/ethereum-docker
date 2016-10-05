@@ -1,11 +1,9 @@
 version: '2'
 services:
   parity:
-    image: ethcore/parity
-    command: -j --jsonrpc-interface ‘0.0.0.0’ --datadir=/root/.ethereum/devchain --nodekeyhex=091bd6067cb4612df85d9c1ff85cc47f259ced4d4cd99816b14f35650f59c322 --ipcapi='admin,db,eth,debug,miner,net,shh,txpool,personal,web3' --rpcapi "db,personal,eth,net,web3" --rpccorsdomain='*' --networkid=1234 --rpc --rpcaddr="0.0.0.0" init=/root/files/genesis.json --mine
-    volumes:
+    image: parity-binary
+    command: -j --jsonrpc-interface ‘0.0.0.0’
       - parity-data:/root/.parity
-      - /Users/voober/Data/dinghy/parity/backup:/backup
     ports:
       - "8545:8545"
       
